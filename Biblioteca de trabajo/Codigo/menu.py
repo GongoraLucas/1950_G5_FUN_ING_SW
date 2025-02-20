@@ -120,9 +120,6 @@ def solicitar_datos_alicuota(con_id = True):
     if con_id:
         id = ingresar_validar_id()
 
-        
-
-    
     residente = validar_texto("Nombre del residente: ")
     
     validacion_estado_pago = r"^(pendiente|pagado)$"
@@ -157,9 +154,9 @@ def validar_numero_decimal(pregunta):
     return valor
 
 def validar_texto(pregunta):
-    validacion_texto = r"^[a-zA-Z]+$"
+    validacion_texto = r"^[a-zA-Z\s]+$"
     mensaje_error = "Debes ingresar solo letras"
-    validar_pregunta(pregunta,validacion_texto,mensaje_error)
+    return validar_pregunta(pregunta,validacion_texto,mensaje_error)
 
 def validar_pregunta(pregunta,validacion,mensaje_error):
     while True:
